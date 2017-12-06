@@ -1,6 +1,31 @@
-filetype off
+call plug#begin('~/.local/share/nvim/plugged')
+
+Plug 'VundleVim/Vundle.vim'
+Plug 'tpope/vim-sensible'
+Plug 'prettier/prettier'
+Plug 'sbdchd/neoformat'
+Plug 'mhartington/oceanic-next'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+Plug 'w0rp/ale'
+Plug 'tpope/vim-fugitive'
+Plug 'othree/yajs.vim'
+Plug 'othree/es.next.syntax.vim'
+Plug 'othree/html5.vim'
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'junegunn/fzf.vim'
+Plug 'autozimu/LanguageClient-neovim'
+Plug 'Shougo/echodoc.vim'
+Plug 'moll/vim-node'
+Plug 'vimlab/split-term.vim'
+Plug 'reasonml-editor/vim-reason-plus'
+Plug 'roxma/nvim-completion-manager'
+Plug 'vim-airline/vim-airline'
+
+call plug#end()
+
+syntax enable
 set hidden
-set nocompatible
 set rtp+=~/.vim/bundle/Vundle.vim
 set rtp+=/usr/local/opt/fzf
 set tabstop=4
@@ -9,30 +34,6 @@ set expandtab
 set number
 set cc=+1
 set encoding=utf-8
-set statusline=%{fugitive#statusline()}
-call vundle#begin()
-
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'tpope/vim-sensible'
-Plugin 'prettier/prettier'
-Plugin 'sbdchd/neoformat'
-Plugin 'mhartington/oceanic-next'
-Plugin 'pangloss/vim-javascript'
-Plugin 'mxw/vim-jsx'
-Plugin 'w0rp/ale'
-Plugin 'tpope/vim-fugitive'
-Plugin 'othree/yajs.vim'
-Plugin 'othree/es.next.syntax.vim'
-Plugin 'othree/html5.vim'
-Plugin 'HerringtonDarkholme/yats.vim'
-Plugin 'junegunn/fzf.vim'
-Plugin 'autozimu/LanguageClient-neovim'
-Plugin 'Shougo/echodoc.vim'
-Plugin 'moll/vim-node'
-Plugin 'vimlab/split-term.vim'
-Plugin 'reasonml-editor/vim-reason-plus'
-
-call vundle#end()
 
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -50,6 +51,8 @@ nnoremap <silent> <cr> :call LanguageClient_textDocument_hover()<CR>
 nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
 nnoremap <silent> gf :call LanguageClient_textDocument_formatting()<CR>
 nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
+autocmd FileType javascript nnoremap <buffer>
+  \ <leader>o :call LanguageClient_textDocument_documentSymbol()<cr>
 
 let g:LanguageClient_serverCommands = {
     \ 'reason': ['ocaml-language-server', '--stdio'],
@@ -58,9 +61,7 @@ let g:LanguageClient_serverCommands = {
 let g:LanguageClient_autoStart = 1
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
-let g:javascript_plugin_flow = 1
+let g:javascript_Plug_flow = 1
 let g:jsx_ext_required = 0
-let g:oceanic_next_terminal_bold = 1
-let g:oceanic_next_terminal_italic = 1
 
 colorscheme OceanicNext
