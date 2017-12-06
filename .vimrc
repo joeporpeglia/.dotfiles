@@ -9,6 +9,8 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 set smarttab
+set number
+set cc=+1
 set statusline=%{fugitive#statusline()}
 call vundle#begin()
 
@@ -23,6 +25,8 @@ Plugin 'othree/yajs.vim'
 Plugin 'othree/html5.vim'
 Plugin 'HerringtonDarkholme/yats.vim'
 Plugin 'junegunn/fzf.vim'
+Plugin 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
+Plugin 'Shougo/echodoc.vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -35,7 +39,7 @@ inoremap jj <ESC>
 nmap <leader><tab> <plug>(fzf-maps-n)
 xmap <leader><tab> <plug>(fzf-maps-x)
 omap <leader><tab> <plug>(fzf-maps-o)
-nnoremap <silent> <expr> <Leader><Leader> (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" : '').":Files\<cr>"
+nnoremap <silent> <Leader><Leader> :Files<cr>
 nnoremap <silent> <Leader>c :Colors<CR>
 nnoremap <silent> <Leader>b :Buffers<CR>
 nnoremap <silent> <Leader>l :Lines<CR>
